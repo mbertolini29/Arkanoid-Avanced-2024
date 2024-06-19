@@ -30,22 +30,29 @@ public class Ball : MonoBehaviour
         isBallMoving = true;
     }
 
+    private void Hit()
+    {
+        //Destroy(collision.gameObject);
+
+        //5% de velocidad más.
+        ballRb.velocity *= velocityMultiplier;
+
+        //Para saber si se destruyeron todos los bloques.
+        //GameManager.Instance.BlockDestroyed();
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Block"))
         {
-            Destroy(collision.gameObject);
-
-            //5% de velocidad más.
-            ballRb.velocity *= velocityMultiplier;
-
-            //
-            GameManager.Instance.BlockDestroyed();
+            Hit();
+            //llamaria al bloque entonces, para destruilo.
         }
         VelocityFix();
     }
 
-    private void VelocityFix()
+    //esto corrige un error, por si queda en cero el movimiento
+    private void VelocityFix() 
     {
         float velocityDelta = 0.5f;
         float minVelocity = 0.2f;

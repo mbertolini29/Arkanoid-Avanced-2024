@@ -304,8 +304,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: 
+  isBreakable: 0
   score: 0
-  hitCount: 0
+  currentHitCount: 0
+  allHitCount: 0
 --- !u!1001 &2588502076961630756
 PrefabInstance:
   m_ObjectHideFlags: 0

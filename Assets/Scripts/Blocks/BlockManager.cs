@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class BlockManager : MonoBehaviour
 {
- 
+    private void Start()
+    {
+        
+    }
 }
