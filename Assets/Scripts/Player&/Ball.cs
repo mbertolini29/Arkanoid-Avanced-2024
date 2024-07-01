@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ball : MonoBehaviour
+public class Ball : MonoBehaviour, IInteract
 {
     [SerializeField] private Vector2 initialVelocity = new(4f, 6f);
     [SerializeField] private float velocityMultiplier = 1.15f;
 
     private Rigidbody2D ballRb;
     private bool isBallMoving;
+
+    //
+    private IDamage otherCharacter;
 
     void Start()
     {
@@ -30,25 +33,54 @@ public class Ball : MonoBehaviour
         isBallMoving = true;
     }
 
-    private void Hit()
+    //private void Hit()
+    //{
+    //    //Destroy(collision.gameObject);
+
+    //    //5% de velocidad más.
+    //    ballRb.velocity *= velocityMultiplier;
+
+    //    //Para saber si se destruyeron todos los bloques.
+    //    //GameManager.Instance.BlockDestroyed();
+    //}
+
+    #region Interface
+
+    public void Interact()
     {
-        //Destroy(collision.gameObject);
-
-        //5% de velocidad más.
-        ballRb.velocity *= velocityMultiplier;
-
-        //Para saber si se destruyeron todos los bloques.
-        //GameManager.Instance.BlockDestroyed();
+        if(otherCharacter != null)
+        {
+            //5% de velocidad más.
+            ballRb.velocity *= velocityMultiplier;
+        }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    #endregion
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.CompareTag("Block"))
-        {
-            Hit();
-            //llamaria al bloque entonces, para destruilo.
-        }
+      
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        otherCharacter = other.gameObject.GetComponent<IDamage>();
+
+        //if (otherCharacter != null)
+        //{
+        //    otherCharacter.Damage(1);
+        //}
+
         VelocityFix();
+
+        //if (collision.gameObject.CompareTag("Block"))
+        //{
+        //    Hit();
+        //    //llamaria al bloque entonces, para destruilo.
+        //}
+
+        //VelocityFix();
     }
 
     //esto corrige un error, por si queda en cero el movimiento

@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlockY : Block
+public class BlockV : Block
 {
     private void Awake()
     {
-        Color = "Yellow";
+        Color = "Violet";
         CurrentHitCount = 0;
-        AllHitCount = 1;
-        Score = 50;
+        AllHitCount = 2;
+        Score = 100;
     }
 
     private void Start()
@@ -20,26 +20,13 @@ public class BlockY : Block
     public override void Damage(int hitCount)
     {
         CurrentHitCount = hitCount;
-        if (CurrentHitCount >= AllHitCount)
-        {
-            Debug.Log("fui golpeado.");
-        }
+        if (CurrentHitCount >= AllHitCount) Destroy();
     }
 
     protected override void Destroy()
     {
         //eliminar objeto.
         Debug.Log("se destruyo bloque");
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        //IDamage otherCharacter = other.GetComponent<IDamage>();
-
-        //if (otherCharacter != null)
-        //{
-        //    otherCharacter.Damage(1);
-        //}
     }
 
     private void OnCollisionEnter2D(Collision2D other)
