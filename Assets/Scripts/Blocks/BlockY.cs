@@ -19,30 +19,14 @@ public class BlockY : Block
 
     public override void Damage(int hitCount)
     {
-        CurrentHitCount = hitCount;
+        CurrentHitCount += hitCount;
         if (CurrentHitCount >= AllHitCount)
         {
-            Debug.Log("fui golpeado.");
+            Destroy(this.gameObject);
         }
     }
 
-    protected override void Destroy()
-    {
-        //eliminar objeto.
-        Debug.Log("se destruyo bloque");
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        //IDamage otherCharacter = other.GetComponent<IDamage>();
-
-        //if (otherCharacter != null)
-        //{
-        //    otherCharacter.Damage(1);
-        //}
-    }
-
-    private void OnCollisionEnter2D(Collision2D other)
+    public override void OnCollisionEnter2D(Collision2D other)
     {
         IDamage otherCharacter = other.gameObject.GetComponent<IDamage>();
 

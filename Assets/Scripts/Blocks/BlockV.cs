@@ -19,17 +19,14 @@ public class BlockV : Block
 
     public override void Damage(int hitCount)
     {
-        CurrentHitCount = hitCount;
-        if (CurrentHitCount >= AllHitCount) Destroy();
+        CurrentHitCount += hitCount;
+        if (CurrentHitCount >= AllHitCount)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
-    protected override void Destroy()
-    {
-        //eliminar objeto.
-        Debug.Log("se destruyo bloque");
-    }
-
-    private void OnCollisionEnter2D(Collision2D other)
+    public override void OnCollisionEnter2D(Collision2D other)
     {
         IDamage otherCharacter = other.gameObject.GetComponent<IDamage>();
 
@@ -38,4 +35,6 @@ public class BlockV : Block
             otherCharacter.Damage(1);
         }
     }
+
+
 }

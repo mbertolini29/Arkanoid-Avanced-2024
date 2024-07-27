@@ -11,3 +11,8 @@ public interface IDamage
 {
     void Damage(int value);
 }
+
+public interface IHeal 
+{
+    void Heal(int value);
+}
