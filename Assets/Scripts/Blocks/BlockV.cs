@@ -9,12 +9,12 @@ public class BlockV : Block
         Color = "Violet";
         CurrentHitCount = 0;
         AllHitCount = 2;
-        Score = 100;
+        Points = 100;
     }
 
     private void Start()
     {
-        Debug.Log($"El color del bloque es: {Color}{CurrentHitCount}{AllHitCount}{Score}");
+        Debug.Log($"El color del bloque es: {Color}{CurrentHitCount}{AllHitCount}{Points}");
     }
 
     public override void Damage(int hitCount)
@@ -23,6 +23,9 @@ public class BlockV : Block
         if (CurrentHitCount >= AllHitCount)
         {
             Destroy(this.gameObject);
+
+            //
+            OnUpdateScore?.Invoke(Points);
         }
     }
 

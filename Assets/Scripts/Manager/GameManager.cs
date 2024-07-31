@@ -9,6 +9,43 @@ public class GameManager : MonoBehaviour
 
     private int blocksLeft;
 
+    //vida
+    private int health;
+    //puntaje
+    private int score;
+    private int scoreHigh;
+
+    public int Score 
+    {
+        get => score;
+        set
+        {
+            score = value;
+            HUD.Instance.UpdateScore(score);
+        }
+    }
+
+    public int ScoreHigh
+    {
+        get => scoreHigh;
+        set
+        {
+            scoreHigh = value;
+            if(score > scoreHigh)
+                HUD.Instance.UpdateScoreHigh(scoreHigh);
+        }
+    }
+
+    public int Health
+    {
+        get => health;
+        private set
+        {
+            health = value;
+            //HUD.Instance.UpdateHealth(health);
+        }
+    }
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -24,12 +61,16 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         blocksLeft = GameObject.FindGameObjectsWithTag("Block").Length;
+
+        //inicializar
+        Score = 0;
+        Health = 3;
     }
 
     public void BlockDestroyed()
     {
         blocksLeft--;
-        if(blocksLeft <= 0)
+        if (blocksLeft <= 0)
         {
             LoadNextLevel();
         }

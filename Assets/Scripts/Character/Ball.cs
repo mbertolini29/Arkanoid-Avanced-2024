@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Ball : MonoBehaviour, IInteract
 {
     [SerializeField] private Vector2 initialVelocity = new(4f, 6f);
-    [SerializeField] private float velocityMultiplier = 1.15f;
+    [SerializeField] private float velocityMultiplier = 1.05f;
 
     private Rigidbody2D ballRb;
     private bool isBallMoving;
@@ -42,7 +43,7 @@ public class Ball : MonoBehaviour, IInteract
             ballRb.velocity *= velocityMultiplier;
 
             //hace daño
-            otherCharacter.Damage(1);
+            otherCharacter.Damage(1);            
         }
     }
 

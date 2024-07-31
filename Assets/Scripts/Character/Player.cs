@@ -10,12 +10,14 @@ public class Player : Character, IDamage, IHeal
     public Item currentItem;
     [Space]
     public UnityEvent<int> OnUpdateHealth;
+    public UnityEvent<int> OnUpdateScore;
+    public UnityEvent<int> OnUpdateScoreHigh;
 
     private IInteract otherCharacter;
 
     private void Start()
     {
-        OnUpdateHealth?.Invoke(health);
+        //OnUpdateHealth?.Invoke(health);
     }
 
     public void ActionInteraction()
@@ -49,13 +51,13 @@ public class Player : Character, IDamage, IHeal
     public void Damage(int value)
     {
         health = Mathf.Clamp(health - value, minHealth, maxHealth);
-        OnUpdateHealth?.Invoke(health);
+        //OnUpdateHealth?.Invoke(health);
     }
 
     public void Heal(int value)
     {
         health = Mathf.Clamp(health + value, minHealth, maxHealth);
-        OnUpdateHealth?.Invoke(health);
+        //OnUpdateHealth?.Invoke(health);
     }
 
     #endregion

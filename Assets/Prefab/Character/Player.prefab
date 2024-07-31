@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialVelocity: {x: 4, y: 6}
-  velocityMultiplier: 1.15
+  velocityMultiplier: 1.05
 --- !u!1 &1229066531716565253
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,7 +201,7 @@ Transform:
   m_Children:
   - {fileID: 6152770509751412816}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8322586434544436069
 SpriteRenderer:
@@ -349,6 +349,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnUpdateScore:
+    m_PersistentCalls:
+      m_Calls: []
+  OnUpdateScoreHigh:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &763033380403349026
 MonoBehaviour:
   m_ObjectHideFlags: 0

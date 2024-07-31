@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//BlockSpawner
 public class BlockManager : MonoBehaviour
 {
     [Header("Prefab")]
@@ -20,6 +21,12 @@ public class BlockManager : MonoBehaviour
 
     void CreateBlocks()
     {        
+        if(blockPrefab == null || blockPrefab.Count == 0)
+        {
+            Debug.LogError("No block prefabs assigned or block prefab list is empty");
+            return;
+        }
+
         blockMatrix = new Block[xSize, ySize];
 
         float xPos = xStartPos;
@@ -30,7 +37,9 @@ public class BlockManager : MonoBehaviour
         //int numRandom = Random.Range(0, blockPrefab.Count);
         for (int y = 0; y < ySize; y++)
         {
-            int numRandom = y;
+            //asegurarse que el indice este dentro del rango.
+            int numRandom = Mathf.Clamp(y, 0, blockPrefab.Count - 1);
+
             for (int x = 0; x < xSize; x++)
             {
                 Vector3 pos = new Vector3(xPos + (offset.x * x),
@@ -39,11 +48,14 @@ public class BlockManager : MonoBehaviour
 
                 Block block = Instantiate(blockPrefab[numRandom],
                                           pos,
-                                          blockPrefab[numRandom].transform.rotation);
+                                          Quaternion.identity); //blockPrefab[numRandom].transform.rotation);
 
                 block.Position = new Vector2(x, y);
                 block.name = string.Format("Block[{0}][{1}]", x, y);
                 block.transform.parent = this.transform;
+
+                //asociar el evento usando una expresion lambda
+                block.OnUpdateScore.AddListener(points => GameManager.Instance.Score += points);
 
                 blockMatrix[x, y] = block;
             }
