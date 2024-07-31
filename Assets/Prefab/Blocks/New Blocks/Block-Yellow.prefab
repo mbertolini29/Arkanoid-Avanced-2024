@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4822075980578307729}
   - component: {fileID: 6285077161215909128}
   - component: {fileID: 7849246327170553439}
-  - component: {fileID: 7936352027466309569}
+  - component: {fileID: -8744498544600867343}
   m_Layer: 0
   m_Name: Block-Yellow
   m_TagString: Block
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 83983115a8670d24a8efb1ecb3df54b4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d2f673c14deddd94ea23d9aee5a91025, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -131,7 +131,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.5}
   m_EdgeRadius: 0
---- !u!114 &7936352027466309569
+--- !u!114 &-8744498544600867343
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,37 +140,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8277558104622161896}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec965e3f7cd38c045b03b78ef627e35c, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f36153daa40a044c8d423bcfbc5a651, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 22c8a7c223c3e9745a52ee63eeb1587b, type: 2}
   OnUpdateScore:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnUpdateScoreHigh:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []

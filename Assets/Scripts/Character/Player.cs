@@ -52,6 +52,10 @@ public class Player : Character, IDamage, IHeal
     {
         health = Mathf.Clamp(health - value, minHealth, maxHealth);
         //OnUpdateHealth?.Invoke(health);
+        //if (health <= 0)
+        //{
+        //    Destroy(gameObject, 0.5f);
+        //}
     }
 
     public void Heal(int value)

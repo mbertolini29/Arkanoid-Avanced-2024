@@ -50,7 +50,7 @@ public class BlockManager : MonoBehaviour
                                           pos,
                                           Quaternion.identity); //blockPrefab[numRandom].transform.rotation);
 
-                block.Position = new Vector2(x, y);
+                //block.position = new Vector2(x, y);
                 block.name = string.Format("Block[{0}][{1}]", x, y);
                 block.transform.parent = this.transform;
 

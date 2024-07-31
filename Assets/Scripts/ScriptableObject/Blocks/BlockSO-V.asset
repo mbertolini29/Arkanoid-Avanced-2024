@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8ad9be294f8eaf49bf859ce2f4fd461, type: 3}
   m_Name: BlockSO-V
   m_EditorClassIdentifier: 
-  color: {r: 0.5434317, g: 0.07529365, b: 0.8490566, a: 0}
+  color: {r: 0.6595768, g: 0.135849, b: 1, a: 1}
   nameBlock: 
-  HitCount: 2
-  Score: 100
+  hitCount: 2
+  score: 100

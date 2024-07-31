@@ -7,6 +7,6 @@ public class BlockSO : ScriptableObject
 {
     public Color color;
     public string nameBlock;
-    public int HitCount;
-    public int Score;
+    public int hitCount;
+    public int score;
 }

@@ -3,26 +3,41 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public abstract class Block : MonoBehaviour, IDamage
+public class Block : MonoBehaviour, IDamage
 {
     public BlockSO data;
 
-    //protected int currentHitCount;
-
-    protected string Color { get; set; } //o material: ]
-    public Vector2 Position { get; set; }    
-    protected int CurrentHitCount { get; set; }
-    protected int AllHitCount { get; set; }
-    
-    protected int Points { get; set; }
+    private int currentHitCount;
+    private Vector2 position;
 
     [Space]
     public UnityEvent<int> OnUpdateScore;
     public UnityEvent<int> OnUpdateScoreHigh;
 
-    public virtual void Damage(int value)
+    private void Awake()
     {
-        Debug.Log("choque block");
+        InitializeBlock();
+    }
+
+    private void InitializeBlock()
+    {
+        currentHitCount = 0;
+        GetComponent<SpriteRenderer>().color = data.color;
+    }
+
+    public void Damage(int value)
+    {
+        currentHitCount += value;
+        if (currentHitCount >= data.hitCount)
+        {
+            DestroyBlock();
+        }
+    }
+
+    private void DestroyBlock()
+    {
+        OnUpdateScore?.Invoke(data.score);
+        Destroy(gameObject);
     }
 
     public virtual void OnCollisionEnter2D(Collision2D other)

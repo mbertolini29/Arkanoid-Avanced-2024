@@ -33,7 +33,7 @@ public class PlayerInput : MonoBehaviour
         float xMoveInput = moveInput * speedMovement * Time.deltaTime;
 
         Vector2 playerPosition = transform.position;
-        playerPosition.x = Mathf.Clamp(playerPosition.x + xMoveInput, -bounds, bounds);
+        playerPosition.x = Mathf.Clamp(playerPosition.x + xMoveInput, -bounds, 3.8f);
         transform.position = playerPosition;
     }
 

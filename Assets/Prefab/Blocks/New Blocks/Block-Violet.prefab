@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4525034393403912215}
   - component: {fileID: 2676662099642020047}
   - component: {fileID: 3714763142707917227}
-  - component: {fileID: 8078756209678405576}
+  - component: {fileID: 2490308656199128488}
   m_Layer: 0
   m_Name: Block-Violet
   m_TagString: Block
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5232c75844abecb4191f65c5053497df, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d2f673c14deddd94ea23d9aee5a91025, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -131,7 +131,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.5}
   m_EdgeRadius: 0
---- !u!114 &8078756209678405576
+--- !u!114 &2490308656199128488
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,25 +140,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7670006193474511046}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 911941f6eceff6141a7972ed3be5026e, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f36153daa40a044c8d423bcfbc5a651, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: defa577959dcdc14b84bbc4946bd2572, type: 2}
   OnUpdateScore:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnUpdateScoreHigh:
     m_PersistentCalls:
       m_Calls: []
